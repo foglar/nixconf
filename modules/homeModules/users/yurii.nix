@@ -16,14 +16,18 @@
       
       # Or inline configuration:
       {
-        home.packages = [];
-        
         # Example programs configuration
         # programs.git = {
         #   enable = true;
         #   userName = "Your Name";
         #   userEmail = "your.email@example.com";
         # };
+        
+        # Example packages
+        # home.packages = with pkgs; [
+        #   htop
+        #   tree
+        # ];
       }
     ];
   };

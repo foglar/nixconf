@@ -9,10 +9,6 @@
     # This is an example home-manager module for git configuration
     # You can customize it according to your needs
     
-    options.programs.git = {
-      # Additional options can be defined here if needed
-    };
-    
     config = lib.mkIf cfg.enable {
       programs.git = {
         # Example configuration
