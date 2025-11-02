@@ -134,5 +134,40 @@ Current home-manager modules:
 - `homeModules.base`: Base configuration with essential settings
 - `homeModules.git`: Git configuration example
 - `homeModules.shell`: Shell configuration example
+- `homeModules.development`: Development tools and environment setup example
 
 You can extend this by creating new modules in `modules/homeModules/features/`.
+
+## Quick Start
+
+### Check Available Outputs
+
+To see all available home-manager configurations:
+```bash
+nix flake show
+```
+
+Look for the `homeConfigurations` section to see available user configurations.
+
+### For Standalone Use
+
+1. Edit `modules/homeModules/users/yurii.nix` (or create your own user file)
+2. Customize the modules and configuration
+3. Run: `nix run github:nix-community/home-manager -- switch --flake .#yurii`
+
+### For NixOS Integration
+
+1. In your NixOS configuration file (e.g., `modules/nixosModules/hosts/main/configuration.nix`):
+   ```nix
+   imports = [
+     self.nixosModules.home-manager-integration
+   ];
+
+   home-manager.users.${config.preferences.user.name} = {
+     imports = [
+       self.homeModules.base
+     ];
+   };
+   ```
+
+2. Rebuild your NixOS system: `sudo nixos-rebuild switch --flake .#main`
