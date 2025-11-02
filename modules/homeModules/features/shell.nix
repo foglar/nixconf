@@ -7,21 +7,12 @@
   }: {
     # Example shell configuration module
     # This demonstrates how to configure shell programs with home-manager
+    # Import this module and enable the shells you want to use
     
-    programs.bash = {
-      enable = lib.mkDefault false;
-      # Add bash configuration here if needed
-    };
-    
-    programs.zsh = {
-      enable = lib.mkDefault false;
-      # Add zsh configuration here if needed
-    };
-    
-    programs.fish = {
-      enable = lib.mkDefault false;
-      # Add fish configuration here if needed
-    };
+    # Example: uncomment to enable specific shells
+    # programs.bash.enable = true;
+    # programs.zsh.enable = true;
+    # programs.fish.enable = true;
     
     # Example: Add common shell utilities to home packages
     home.packages = with pkgs; [

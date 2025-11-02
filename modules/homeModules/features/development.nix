@@ -31,7 +31,8 @@
     # Example: Configure direnv for per-directory environments
     programs.direnv = {
       enable = lib.mkDefault false;
-      nix-direnv.enable = lib.mkDefault false;
+      # When enabled, nix-direnv provides better integration with Nix
+      # nix-direnv.enable = true;
     };
     
     # Example: Configure git if not configured elsewhere

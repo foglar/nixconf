@@ -3,24 +3,19 @@
     lib,
     config,
     ...
-  }: let
-    cfg = config.programs.git;
-  in {
+  }: {
     # This is an example home-manager module for git configuration
     # You can customize it according to your needs
     
-    config = lib.mkIf cfg.enable {
-      programs.git = {
-        # Example configuration
-        # These are just examples - customize as needed
-        
-        # userName = "Your Name";
-        # userEmail = "your.email@example.com";
-        
-        extraConfig = {
-          init.defaultBranch = "main";
-          pull.rebase = true;
-        };
+    # Example: Add default git configuration
+    programs.git = {
+      # These are example defaults - customize as needed
+      # userName = "Your Name";
+      # userEmail = "your.email@example.com";
+      
+      extraConfig = {
+        init.defaultBranch = lib.mkDefault "main";
+        pull.rebase = lib.mkDefault true;
       };
     };
   };
